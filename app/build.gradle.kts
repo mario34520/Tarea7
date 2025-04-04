@@ -44,6 +44,11 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.5") // Navegación en Jetpack Compose
     implementation("androidx.compose.material3:material3:1.1.2") // Material 3 para UI
     implementation("androidx.compose.material:material-icons-extended:1.5.4") // Íconos de Material
+    implementation ("androidx.room:room-runtime:2.6.1")
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.runtime.livedata)
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -1,6 +1,7 @@
 package com.tarea1.tarea6
 
 import android.os.Bundle
+import com.tarea1.tarea6.ui.*
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.foundation.layout.padding
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -76,8 +78,17 @@ fun DrawerMenu(navController: NavHostController, closeDrawer: () -> Unit) {
         TextButton(onClick = { navController.navigate("about"); closeDrawer() }) {
             Text("About")
         }
+
+        // NUEVOS BOTONES PARA CONTACTOS
+        TextButton(onClick = { navController.navigate("lista_contactos"); closeDrawer() }) {
+            Text("Lista de Contactos")
+        }
+        TextButton(onClick = { navController.navigate("agregar_contacto"); closeDrawer() }) {
+            Text("Agregar Contacto")
+        }
     }
 }
+
 
 @Composable
 fun NavigationHost(navController: NavHostController, modifier: Modifier) {
@@ -85,6 +96,10 @@ fun NavigationHost(navController: NavHostController, modifier: Modifier) {
         composable("formulario") { FormularioScreen() }
         composable("detalle") { DetalleScreen() }
         composable("about") { AboutScreen() }
+
+        // NUEVAS PANTALLAS CON ROOM
+        composable("lista_contactos") { ListaContactosScreen(navController) }
+        composable("agregar_contacto") { AgregarContactoScreen(navController) }
     }
 }
 
